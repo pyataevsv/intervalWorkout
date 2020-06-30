@@ -7,7 +7,7 @@
 * combining configuration of you proframm with timer settings
 * boring from old programs
 
-**In this frontend-only (react+redux) app beta-version I've tried to soleve some of this problems.
+**In this frontend-only (react+redux) mobile-first app beta-version I've tried to soleve some of this problems.
 Main features:**
 * flexible interval timer
 * ability to cofigure and remember your own trining programms
