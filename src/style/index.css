@@ -61,7 +61,7 @@ body {
 #root {
   max-width: 920px;
   margin:0px auto;
-  border: 1px solid #cecece;
+  
 }
 
 .App{
@@ -137,4 +137,11 @@ div.cfg-footer-box.review > div {
 
 button:hover{
   cursor:pointer;
+}
+
+@media screen and (min-width: 920px) {
+    
+  #root{
+    border: 1px solid #cecece;
+  }
 }
