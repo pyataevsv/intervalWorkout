@@ -1,0 +1,29 @@
+
+.settngs-cfg-box {
+    font-size: 25px;
+}
+.settngs-cfg-box > div > div > i {
+    cursor: pointer;
+}
+
+.settngs-cfg-box > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: whitesmoke;
+    border-bottom: 2px solid #8a8686;
+    margin: 15px 0px;
+}
+
+.settngs-cfg-box input{
+    border-bottom: none;
+    width: 100px;
+    font-size: 35px;
+    margin-bottom: 0px;
+}
+.int-val{
+    font-size: 35px;
+    padding: 0px 10px;
+}
+
+

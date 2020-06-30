@@ -1,0 +1,5 @@
+export const OPEN_SCREEN = 'OPEN_SCREEN'
+export const ADD_WORKOUT = 'ADD_WORKOUT'
+export const ADD_WORKOUT_WITH_IMG = 'ADD_WORKOUT_WITH_IMG'
+export const EDIT_WORKOUT = 'EDIT_WORKOUT'
+export const REMOVE_WORKOUT = 'REMOVE_WORKOUT'

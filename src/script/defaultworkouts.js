@@ -1,0 +1,86 @@
+export const defaultWorkouts = [
+    {
+        name: 'Core acсent',
+        category: 'Fat burn',
+        rounds: 4,
+        warmUp: 10,
+        sets: 1,
+        timeOn: 45,
+        timeOff: 10,
+        exRestTime: 10,
+        roundRestTime: 30,
+        exs: ['Plank', 'Abs', 'Slow push-ups', 'Butt kicks', 'Squat-jumps']
+    },
+    {
+        name: 'Legs acсent',
+        category: 'Fat burn',
+        rounds: 4,
+        warmUp: 10,
+        sets: 1,
+        timeOn: 45,
+        timeOff: 10,
+        exRestTime: 10,
+        roundRestTime: 30,
+        exs: ['Plank', 'Abs', 'Slow push-ups', 'Butt kicks', 'Squat-jumps']
+    },
+    {
+        name: 'Hands acсent',
+        category: 'Fat burn',
+        rounds: 4,
+        warmUp: 10,
+        sets: 1,
+        timeOn: 45,
+        timeOff: 10,
+        exRestTime: 10,
+        roundRestTime: 30,
+        exs: ['Plank', 'Abs', 'Slow push-ups', 'Butt kicks', 'Squat-jumps']
+    },
+    {
+        name: 'Swing only',
+        category: 'Ketlebells',
+        rounds: 1,
+        warmUp: 10,
+        sets: 10,
+        timeOn: 45,
+        timeOff: 10,
+        exRestTime: 5,
+        roundRestTime: 5,
+        exs: ['Swing']
+    },
+    // {
+    //     name: 'Figure 1',
+    //     category: 'Ketlebells',
+    //     rounds: 1,
+    //     warmUp: 10,
+    //     sets: 3,
+    //     timeOn: 45,
+    //     timeOff: 10,
+    //     exRestTime: 30,
+    //     roundRestTime: 5,
+    //     exs: ['Squats', 'Right hand press', 'Left hand press', 'Turkish get-up (right)', 'Turkish get-up (left)']
+    // },
+    {
+        name: 'Sholders accent',
+        category: 'Ketlebells',
+        rounds: 1,
+        warmUp: 10,
+        sets: 3,
+        timeOn: 45,
+        timeOff: 10,
+        exRestTime: 30,
+        roundRestTime: 5,
+        exs: ['Sholder press r', 'Sholder press l', 'Side swing r', 'Side swing l', 'Side lunge']
+    },
+    {
+        name: 'Figure 1',
+        category: 'Tabatas',
+        rounds: 4,
+        warmUp: 10,
+        sets: 1,
+        timeOn: 20,
+        timeOff: 10,
+        exRestTime: 10,
+        roundRestTime: 45,
+        exs: ['Height knees', 'Froggers', 'Plank jack', 'Tuck jumps', 'Mountain climbers']
+    },
+]

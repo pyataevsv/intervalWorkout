@@ -1,0 +1,140 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  color: #2E2D35;
+}
+
+h2{
+  font-size: 20px;
+  padding: 5px 0px;
+  font-weight: 700;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #333333;
+  background-color: #e9f0fd;
+}
+
+#root {
+  max-width: 920px;
+  margin:0px auto;
+  border: 1px solid #cecece;
+}
+
+.App{
+  background-color: #F5F5F7;
+  min-height: 100vh;
+    
+}
+.btn-back{
+  background-color: whitesmoke;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+}
+.btn-back:hover{
+  cursor:pointer;
+}
+
+
+.btn-footer{
+  position: fixed;
+  bottom: -1px;
+  width: 100%;
+  background-color:#303239;
+  padding: 20px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  max-width: 920px;
+}
+.cfg-footer-box{
+  color: whitesmoke;
+  margin: 0px auto;
+  display: flex;
+  justify-content: center;
+}
+.cfg-footer-box > div {
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+  margin: 0px 10px 10px 10px; 
+  font-size: 12px;
+  padding: 4px 6px;
+}
+div.cfg-footer-box.review > div {
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+  margin: 10px 10px 0px 10px; 
+  font-size: 12px;
+  padding: 4px 6px;
+}
+.cfg-footer-box i {
+  color:#9660b4;
+  font-size: 18px;
+}
+.cfg-footer-box > div > span {
+  position: relative;
+  bottom: 4px;
+}
+
+.btn {
+  display: block;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 600;
+  width: 70%;
+  margin: 0px auto;
+  border-radius: 10px;
+  background-color: #9660B4;
+  text-align: center;
+  color:white;
+}
+.btn:hover{
+  cursor:pointer;
+}
+
+button:hover{
+  cursor:pointer;
+}

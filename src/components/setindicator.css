@@ -1,0 +1,36 @@
+.set-ind-box{
+    display: grid;
+    /* grid-template-columns: auto auto ; */
+    -moz-column-gap: 5px;
+         column-gap: 5px;
+}
+.set-ind-box > div {
+    padding: 5px;
+}
+.set-fut {
+    border-bottom:3px solid black;
+}
+.set-done {
+    border-bottom:3px solid white;
+}
+
+.round-ind-box{
+    display: grid;
+    /* grid-template-columns: auto auto ; */
+    -moz-column-gap: 5px;
+         column-gap: 5px;
+}
+.round-ind-box > div {
+    padding: 5px;
+}
+.round-fut {
+    border-bottom:3px solid black;
+}
+.round-done {
+    border-bottom:3px solid white;
+}
+
+.ind-name {
+    position: relative;
+    top: 9px;
+}

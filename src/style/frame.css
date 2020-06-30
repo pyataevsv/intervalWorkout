@@ -1,0 +1,229 @@
+.cfg-overlay {
+    position: fixed; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    height: 100%; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); 
+    z-index: 2;
+    max-width: 920px;
+    margin: 0px auto;
+    
+}
+
+.cfg-overlay-box {
+    width: 90%;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #303239;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.cfg-overlay-box input{
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 20px;
+    background-color: #303239;
+    border: none;
+    border-bottom: 2px solid #8a8686;
+    color: whitesmoke;
+    outline: none;
+}
+
+.vh{
+    min-height: 100vh;
+}
+
+.name-set-item {
+    margin: 15px 0px;
+}
+
+.config-header{
+    position: fixed;
+    top: 0px;
+    display: grid;
+    row-gap: 5px;
+    padding: 10px 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 100%;
+    background-color:#303239;
+    color: whitesmoke;
+    z-index: 1;
+    max-width: 920px;
+}
+
+.config-header > div:nth-child(1){
+    display: flex;
+    justify-content: space-between;
+}
+
+.cfg-name{
+    font-size: 20px;
+}
+.cfg-name:hover{
+    cursor: pointer;
+}
+.cfg-name i {
+    font-size: 18px;
+    position: relative;
+    top: 5px;
+}
+.cfg-category {
+    color: grey;
+}
+
+.cfg-category:hover{
+    cursor: pointer;
+}
+.cfg-category i {
+    font-size: 16px;
+    position: relative;
+    top: 3px;
+}
+
+.feed-wrapper{
+    padding: 0px 0px;
+}
+.feed-wrapper > div:nth-child(3) > i {
+    position: relative;
+    bottom: 9px;
+    right: 7px;
+    font-size: 35px;
+    /* animation-name: example;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; */
+    transform: rotate(90deg);
+    
+}
+@-webkit-keyframes example {
+    from {transform: rotate(360deg);}
+    to {transform: rotate(0deg);}
+  }
+@keyframes example {
+    from {transform: rotate(360deg);}
+    to {transform: rotate(0deg);}
+  }
+
+
+.btn-back.edit {
+    background-color: #dcd61b;
+}
+
+.btn-back i {
+    font-size: 30px;
+    color:#303239;
+}
+.btn-back:hover {
+    cursor: pointer;
+}
+
+
+.round-line-box{
+    /* border: 1px solid red; */
+    width: 30px;
+    /* display: flex;
+    justify-content: center; */
+}
+.round-line {
+    height: 100%;
+    width: 2px;
+    margin-left: 6px;
+    border: 2px solid #303239;
+}
+.rounds-box{
+    display: flex;
+}
+.rounds-box div:nth-child(1){
+    position: relative;
+    right: 7px;
+    background-color: #303239;
+    color: whitesmoke;
+    border-radius: 5px;
+    text-align: center;
+    height: 25px;
+    width: 30px;
+    font-size: 18px;
+}
+
+.rounds-box div:nth-child(1) span{
+    position: relative;
+    top: 3px;
+}
+.rounds-box div:nth-child(2){
+    /* text-align: center; */
+    font-size: 14px;
+    position: relative;
+    font-weight: 800;
+}
+
+.rounds-box div:nth-child(2)::before{
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 12px;
+    width: 5px;
+    height: 0px;
+    border: 1px solid #303239;
+}
+
+
+.rounds-box div:nth-child(2) span{
+    position: relative;
+    top: 6px;
+    font-size: 14px;
+}
+
+.rounds-input{
+    box-sizing: border-box;
+    width: 25px;
+    height: 25px;
+    padding-left: 7px;
+}
+
+
+.adder-box {
+    margin-top: 10px;
+    position: relative;
+}
+
+.adder-box::before {
+    content: '';
+    position: absolute;
+    left: -22px;
+    top: 12px;
+    width: 14px;
+    height: 0px;
+    border: 1px solid #303239;
+}
+
+.adder-box input {
+    width: calc(100% - 60px);
+    font-size: 17px;
+}
+.adder-box button {
+    margin-left: 5px;
+    background-color: #e85bbc;
+    color: whitesmoke;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    outline: none;
+}
+.button-footer {
+    box-sizing: border-box;
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+    padding: 20px;
+    width: 100%;
+    background-color: teal;
+}

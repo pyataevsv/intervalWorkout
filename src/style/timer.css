@@ -1,0 +1,181 @@
+@font-face {
+    font-family: digital;
+    src: url('../img/digital-7/digital-7\ \(mono\).ttf');
+  }
+
+.timer-page-box{
+    margin: 0px auto;
+    max-width: 920px;
+}
+.timer-header{
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    max-width: 920px;
+    margin: 0px auto;
+    display: grid;
+    /* grid-template-row: auto auto auto; */
+    row-gap: 10px;
+    padding: 10px 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 100%;
+    background-color:#303239;
+    color: whitesmoke;
+}
+.timer-header > div{
+    font-size: 20px;
+}
+
+.timer-wrapper{
+    height: 100vh;
+    display: grid;
+    transition: background-color 1s;
+}
+
+.round-box {
+    text-align: center;
+}
+
+.timer-box {
+    font-family: digital;
+    display: grid;
+    grid-template-rows:  170px 110px auto;
+    align-items: center;
+    padding: 0px 30px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgb(255, 158, 46);
+    transition: background-color 1s;
+}
+
+.round-box{
+    font-size: 30px;
+}
+
+.timer-box > div:nth-child(2) {
+    font-size: 20px;
+}
+.timer-box > div:nth-child(2) > div {
+}
+.timer-total{
+    font-size: 24px;
+}
+.timer-total > i {
+    position: relative;
+    top: 4px;
+}
+
+.tick-box{
+    font-family: digital;
+    border: 4px solid #000000;
+    font-size: 100px;
+    align-items: center;
+    border-radius: 20px;
+    padding: 10px;
+}
+.timer-box > div:nth-child(3){
+    font-size: 16px;
+}
+
+.next-box {
+    position: relative;
+}
+
+.next-box{
+    height: 100%;
+    margin-top: 20px;
+}
+
+.next-box > div{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    overflow: scroll;
+}
+
+.next-box > div::-webkit-scrollbar {
+    display: none;
+  }
+
+.next-box > div{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+
+.timer-footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    background-color:#303239;
+    padding: 20px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    max-width: 920px;
+}
+
+.btn-start{ 
+    padding: 5px 30px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    background-color: #accc28;
+    text-align: center;
+    color: white;  
+}
+
+.btn-start i {
+    color: whitesmoke;
+    font-size: 40px;
+}
+.btn-pause{ 
+    padding: 5px 30px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    background-color: #cec704;
+    text-align: center;
+    color: white;  
+}
+.btn-pause:hover {
+    cursor: pointer;
+}
+
+.btn-pause i {
+    color: whitesmoke;
+    font-size: 40px;
+}
+
+.btn-stop {
+    background-color: #e65a43;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.btn-stop i {
+    position: relative;
+    left: 10px;
+    top: 9px;
+    color: whitesmoke;
+    font-size: 20px;
+}
+.btn-stop:hover{
+    cursor: pointer;
+}
+.btn-start:hover{
+    cursor: pointer;
+}
+
+@media screen and (min-width: 620px) {
+    
+    .tick-box{
+        font-size: 120px;
+    }
+  }
