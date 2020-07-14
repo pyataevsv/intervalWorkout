@@ -51,7 +51,7 @@ function LastWorkout(props) {
   return (<div className='last-wkt'>
     <h2>Last workout</h2>
     <div className='last-card'>
-      <div className='last-card-inner'>
+      <div className='last-card-inner' onClick={() => props.store.dispatch(actions.openReview(0))}>
         <div className='last-card-name'>{store.getState().workouts[0].name}</div>
         <div className='last-card-meta'>
           <div>
@@ -113,11 +113,11 @@ function MainFeed(props) {
                       <div className='wkt-card-meta-bot'>
                         <span>
                           <i className="material-icons">fitness_center</i>&nbsp;
-                          {store.getState().workouts[0].exs.length} ex
+                          {store.getState().workouts[item.id].exs.length} ex
                         </span>
                         <span>
                           <i className="material-icons">replay</i>&nbsp;
-                        {totalSets} sets
+                        {store.getState().workouts[item.id].sets * store.getState().workouts[item.id].rounds * store.getState().workouts[item.id].exs.length} sets
                       </span>
                       </div>
                     </div>

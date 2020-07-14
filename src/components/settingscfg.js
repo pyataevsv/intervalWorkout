@@ -21,7 +21,7 @@ export class SettingsCfg extends React.Component {
         if (oper == '+' && newState[field] != 99) {
             newState[field]++;
         }
-        if (oper == '-' && newState[field] != 0) {
+        if (oper == '-' && newState[field] != 1) {
             newState[field]--;
         }
         this.setState(newState)
