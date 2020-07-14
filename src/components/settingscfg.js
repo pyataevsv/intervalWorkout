@@ -18,10 +18,10 @@ export class SettingsCfg extends React.Component {
 
     changeInt(oper, field) {
         const newState = Object.assign({}, this.state);
-        if (oper == '+' && newState[field] != 99) {
+        if (oper === '+' && newState[field] !== 99) {
             newState[field]++;
         }
-        if (oper == '-' && newState[field] != 1) {
+        if (oper === '-' && newState[field] !== 1) {
             newState[field]--;
         }
         this.setState(newState)
@@ -31,8 +31,8 @@ export class SettingsCfg extends React.Component {
 
         let arr = e.target.value.split('')
         arr.splice(e.target.selectionStart, 1)
-        if (e.target.selectionStart == 3) arr[2] = ':'
-        if (e.target.selectionStart == 6) {
+        if (e.target.selectionStart === 3) arr[2] = ':'
+        if (e.target.selectionStart === 6) {
             arr[5] = ''
         }
         console.log(e.target.value)
@@ -51,8 +51,8 @@ export class SettingsCfg extends React.Component {
     }
 
     componentDidUpdate() {
-        if (this.curSelectPos == 5) this.curSelectPos = 0
-        if (this.curSelectPos == 2) this.curSelectPos = 3
+        if (this.curSelectPos === 5) this.curSelectPos = 0
+        if (this.curSelectPos === 2) this.curSelectPos = 3
         if (this.ref) setCaretPosition(this.ref.current, this.curSelectPos)
     }
 
@@ -60,14 +60,14 @@ export class SettingsCfg extends React.Component {
     render() {
 
         const toOo = (item) => {
-            if (String(item).length == 2) return item;
+            if (String(item).length === 2) return item;
             return '0' + item
         }
 
         if (this.props.state.openSettingCfg) {
 
             return (
-                <div className='cfg-overlay'>
+                <div className='cfg-overlay disable-select'>
                     <div className='cfg-overlay-box'>
                         <div className='settngs-cfg-box'>
                             <div>
@@ -89,31 +89,31 @@ export class SettingsCfg extends React.Component {
                             <div>
                                 <div>Warm up</div>
                                 <div>
-                                    <input className='mmss-val' type='text' ref={this.warmUp} value={toMmSs(this.state.warmUp)} onChange={(e) => this.changeMmSs(e, 'warmUp', this.warmUp)}></input>
+                                    <input className='mmss-val' type='text' ref={this.warmUp} onKeyDown={(e) => { if (e.keyCode === 13) this.warmUp.current.blur() }} value={toMmSs(this.state.warmUp)} onChange={(e) => this.changeMmSs(e, 'warmUp', this.warmUp)}></input>
                                 </div>
                             </div>
                             <div>
                                 <div>Time on</div>
                                 <div>
-                                    <input className='mmss-val' type='text' ref={this.timeOn} value={toMmSs(this.state.timeOn)} onChange={(e) => this.changeMmSs(e, 'timeOn', this.timeOn)}></input>
+                                    <input className='mmss-val' type='text' ref={this.timeOn} onKeyDown={(e) => { if (e.keyCode === 13) this.timeOn.current.blur() }} value={toMmSs(this.state.timeOn)} onChange={(e) => this.changeMmSs(e, 'timeOn', this.timeOn)}></input>
                                 </div>
                             </div>
                             <div>
                                 <div>Time off</div>
                                 <div>
-                                    <input className='mmss-val' type='text' ref={this.timeOff} value={toMmSs(this.state.timeOff)} onChange={(e) => this.changeMmSs(e, 'timeOff', this.timeOff)}></input>
+                                    <input className='mmss-val' type='text' ref={this.timeOff} onKeyDown={(e) => { if (e.keyCode === 13) this.timeOff.current.blur() }} value={toMmSs(this.state.timeOff)} onChange={(e) => this.changeMmSs(e, 'timeOff', this.timeOff)}></input>
                                 </div>
                             </div>
                             <div>
                                 <div>Ex. rest</div>
                                 <div>
-                                    <input type='text' className='mmss-val' ref={this.exRestTime} value={toMmSs(this.state.exRestTime)} onChange={(e) => this.changeMmSs(e, 'exRestTime', this.exRestTime)}></input>
+                                    <input type='text' className='mmss-val' ref={this.exRestTime} onKeyDown={(e) => { if (e.keyCode === 13) this.exRestTime.current.blur() }} value={toMmSs(this.state.exRestTime)} onChange={(e) => this.changeMmSs(e, 'exRestTime', this.exRestTime)}></input>
                                 </div>
                             </div>
                             <div>
                                 <div>Rounds rest</div>
                                 <div>
-                                    <input type='text' className='mmss-val' ref={this.roundRestTime} value={toMmSs(this.state.roundRestTime)} onChange={(e) => this.changeMmSs(e, 'roundRestTime', this.roundRestTime)}></input>
+                                    <input type='text' className='mmss-val' ref={this.roundRestTime} onKeyDown={(e) => { if (e.keyCode === 13) this.roundRestTime.current.blur() }} value={toMmSs(this.state.roundRestTime)} onChange={(e) => this.changeMmSs(e, 'roundRestTime', this.roundRestTime)}></input>
                                 </div>
                             </div>
                         </div>

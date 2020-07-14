@@ -1,9 +1,8 @@
 import React from 'react';
 import './style/timer.css'
 import { Timer } from './timer'
-import logo from './logo.svg';
 import * as actions from './redux/actionCreators';
-import { toMmSs, makeExFrame } from './script/foos'
+import { toMmSs } from './script/foos'
 import { SetIndicator, RoundIndicator, ExIndicator } from './components/setindicator'
 import { CurrentNextEx } from './components/curnextex'
 import beepMid from './img/sounds/beep_mid.mp3'
@@ -47,19 +46,19 @@ export class TimerPage extends React.Component {
 
     componentDidUpdate(x, prevState) {
         console.log(this.state.indicators.status + ' ' + String(this.state.status))
-        if (!!String(this.state.timeRemain).match(/(^3$|^2$|^1$)/) && this.state.timeRemain + 1 == prevState.timeRemain) {
+        if (!!String(this.state.timeRemain).match(/(^3$|^2$|^1$)/) && this.state.timeRemain + 1 === prevState.timeRemain) {
             let audio = new Audio(beepMid);
             audio.play();
         }
-        if (this.state.timeRemain == 0 && !!String(this.state.indicators.status).match(/(warmUp|timeOff|exRestTime|roundRestTime)/) && this.state.allTime != 0) {
+        if (this.state.timeRemain === 0 && !!String(this.state.indicators.status).match(/(warmUp|timeOff|exRestTime|roundRestTime)/) && this.state.allTime !== 0) {
             let audio = new Audio(beepHeigh);
             audio.play();
         }
-        if (this.state.timeRemain == 0 && !!String(this.state.indicators.status).match(/(timeOn)/) && this.state.allTime != 0) {
+        if (this.state.timeRemain === 0 && !!String(this.state.indicators.status).match(/(timeOn)/) && this.state.allTime !== 0) {
             let audio = new Audio(beepLow);
             audio.play();
         }
-        if (this.state.allTime == 0 && this.state.allTime + 1 == prevState.allTime) {
+        if (this.state.allTime === 0 && this.state.allTime + 1 === prevState.allTime) {
             this.currentElementId++;
             let audio = new Audio(finBeep);
             audio.play();
@@ -75,7 +74,7 @@ export class TimerPage extends React.Component {
             this.status = this.state.indicators.status
         }
 
-        const tickStyle = (this.state.status == 'start') ?
+        const tickStyle = (this.state.status === 'start') ?
             {
                 color: 'whitesmoke',
                 borderColor: 'whitesmoke'
@@ -86,7 +85,7 @@ export class TimerPage extends React.Component {
             }
 
         const StartPause = () => {
-            if (this.state.allTime == 0) {
+            if (this.state.allTime === 0) {
                 return (
                     <div className='btn-start' onClick={() => {
                     }}>
@@ -118,7 +117,7 @@ export class TimerPage extends React.Component {
             }
         }
 
-        const divStyle = (this.state.indicators.status == 'timeOn') ?
+        const divStyle = (this.state.indicators.status === 'timeOn') ?
             {
                 backgroundColor: '#ffab2e',
             } :

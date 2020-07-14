@@ -85,7 +85,7 @@ body {
   bottom: -1px;
   width: 100%;
   background-color:#303239;
-  padding: 20px;
+  padding: 10px;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   max-width: 920px;
@@ -130,6 +130,7 @@ div.cfg-footer-box.review > div {
   background-color: #9660B4;
   text-align: center;
   color:white;
+  transition: bottom 0.5s cubic-bezier(0.01, 0.35, 0.71, 0.99) 0s;
 }
 .btn:hover{
   cursor:pointer;
@@ -137,6 +138,14 @@ div.cfg-footer-box.review > div {
 
 button:hover{
   cursor:pointer;
+}
+
+.disable-select{
+  user-select: none; /* supported by Chrome and Opera */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
 }
 
 @media screen and (min-width: 920px) {

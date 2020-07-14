@@ -90,7 +90,7 @@
     display: flex;
     padding-left: 10px;
     padding-bottom: 5px;
-    justify-content: start; 
+    justify-content: flex-start; 
 }
 .ex-card-cfg > div {
     padding-right: 10px;

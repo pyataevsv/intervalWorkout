@@ -78,7 +78,7 @@ function LastWorkout(props) {
 function MainFeed(props) {
   const store = props.store;
   let categories = Array.from(new Set(store.getState().workouts.map(item => item.category)));
-  const totalSets = store.getState().workouts[0].sets * store.getState().workouts[0].rounds * store.getState().workouts[0].exs.length;
+  // const totalSets = store.getState().workouts[0].sets * store.getState().workouts[0].rounds * store.getState().workouts[0].exs.length;
 
   return (
     <div className='main-feed'>

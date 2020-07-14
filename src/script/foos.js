@@ -124,7 +124,7 @@ export function makeExFrame(frame, config) {
     let newFrame = [];
     let sr = 1;
     for (let i = 0; i < frame.length; i++) {
-        if (Object.getOwnPropertyNames(frame[i])[0] != sr) {
+        if (Object.getOwnPropertyNames(frame[i])[0] !== sr) {
             newFrame.push(
                 {
                     status: Object.getOwnPropertyNames(frame[i])[0],

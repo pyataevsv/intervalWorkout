@@ -1,4 +1,4 @@
-import { makeFrame, getAllTime, makeSsFrame, makeExFrame } from './script/foos'
+import { makeSsFrame, makeExFrame } from './script/foos'
 
 export function Timer(obj, setState) {
 
@@ -22,7 +22,7 @@ export function Timer(obj, setState) {
 
         setState({ status: 'start' });
 
-        if (this.allTime != 0) tick();
+        if (this.allTime !== 0) tick();
     }
 
 

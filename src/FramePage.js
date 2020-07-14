@@ -28,6 +28,7 @@ export class FramePage extends React.Component {
             },
             openNameCfg: false,
             openSettingCfg: false,
+            hideFooter: false
         }
 
         if (this.context.getState().screen.id !== null) {
@@ -44,10 +45,11 @@ export class FramePage extends React.Component {
         const footer = document.querySelector('.btn-footer');
         root.style.paddingTop = (Number(window.getComputedStyle(header).height.replace('px', '')) + 10) + 'px';
         root.style.paddingBottom = window.getComputedStyle(footer).height;
+        console.log('set')
     }
 
     componentDidUpdate(props, prevState) {
-        if (this.state.workout.exs.length != prevState.workout.exs.length) {
+        if (this.state.workout.exs.length !== prevState.workout.exs.length) {
             window.scrollTo({ left: 0, top: window.document.body.scrollHeight, behavior: "smooth" });
         }
     }
@@ -91,7 +93,7 @@ export class FramePage extends React.Component {
     }
     changeExName(id, value) {
         let newExs = this.state.workout.exs.concat([]);
-        if (value.length != 0) value = value.replace(/^./, value[0].toUpperCase());
+        if (value.length !== 0) value = value.replace(/^./, value[0].toUpperCase());
         newExs[id] = value;
         this.setState({
             workout: Object.assign({}, this.state.workout, { exs: newExs })
@@ -118,6 +120,10 @@ export class FramePage extends React.Component {
             </div>) :
             null;
 
+
+        const btnFooterStyle = (this.state.hideFooter === true) ? { bottom: '-200px', paddingBottom: '0px' } : null;
+        const mainFeedStyle = (this.state.hideFooter === true) ? { paddingBottom: '10px' } : { paddingBottom: window.getComputedStyle(document.querySelector('.btn-footer')).height };
+
         return (
             <div>
                 {(this.state.openNameCfg) ? <NameCfg state={this.state} setCfg={(x) => { this.setCfg(x) }} /> : null}
@@ -132,20 +138,20 @@ export class FramePage extends React.Component {
                     </div>
                     <div className='cfg-name'>
                         <div onClick={() => { this.setState({ openNameCfg: true }) }}>
-                            {this.state.workout.name}
+                            {this.state.workout.name}&nbsp;
                             <i className="material-icons">edit</i>
                         </div>
 
                     </div>
                     <div className='cfg-category'>
                         <div onClick={() => { this.setState({ openNameCfg: true }) }}>
-                            {this.state.workout.category}
+                            {this.state.workout.category}&nbsp;
                             <i className="material-icons">edit</i>
                         </div>
                     </div>
                     <CfgSetBox workout={this.state.workout} openSettingsCfg={() => { this.setState({ openSettingCfg: true }) }} />
                 </header>
-                <div className="main-feed vh">
+                <div className="main-feed vh" style={mainFeedStyle}>
                     <div className='feed-wrapper'>
                         <div className='rounds-box'>
                             <div>
@@ -177,9 +183,13 @@ export class FramePage extends React.Component {
                                         key={id}
                                         changeExName={(id, value) => this.changeExName(id, value)}
                                         removeEx={(id) => this.removeEx(id)}
+                                        hideFooter={(x) => this.setState({ hideFooter: x })}
                                     />
                                 )}
-                                <Adder addEx={(e) => this.addEx(e)} />
+                                <Adder
+                                    addEx={(e) => this.addEx(e)}
+                                    hideFooter={(x) => this.setState({ hideFooter: x })}
+                                />
                                 {(this.state.workout.rounds === 1) ? null :
                                     <div className='roundrest-box'>
                                         Rounds rest time: {toMmSs(this.state.workout.roundRestTime)}
@@ -193,7 +203,7 @@ export class FramePage extends React.Component {
 
                     </div>
                 </div>
-                <div className='btn-footer'>
+                <div className='btn-footer' style={btnFooterStyle}>
                     <div className='cfg-footer-box'>
                         <div>
                             <i className="material-icons">access_time</i>&nbsp;
@@ -229,14 +239,27 @@ class Adder extends React.Component {
     render() {
         return (
             <div className='adder-box'>
-                <input type='text' ref={this.input}></input>
-                <button onClick={() => {
-                    if (this.input.current.value !== '') {
-                        this.props.addEx(this.input.current.value); this.input.current.value = '';
-                    }
-                }
+                <input type='text'
+                    ref={this.input}
+                    onFocus={() => this.props.hideFooter(true)}
+                    onBlur={() => this.props.hideFooter(false)}
+                    onKeyDown={(e) => {
+                        if (e.keyCode === 13) {
+                            this.input.current.blur()
+                            this.props.addEx(this.input.current.value)
+                            this.input.current.value = ''
+                        }
 
-                }>Add</button>
+                    }}
+                ></input>
+                <button
+                    onClick={() => {
+                        console.log('click')
+                        if (this.input.current.value !== '') {
+                            this.props.addEx(this.input.current.value); this.input.current.value = '';
+                        }
+                    }}
+                >Add</button>
             </div>
         )
     }

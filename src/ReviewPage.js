@@ -1,6 +1,5 @@
 import React from 'react';
 import * as actions from './redux/actionCreators';
-import logo from './logo.svg';
 import './style/frame.css'
 import { getAllTime, toMmSs } from './script/foos'
 import { FeedExReview } from './components/feedex'
@@ -14,7 +13,7 @@ export class ReviewPage extends React.Component {
         const store = this.context;
 
         this.state = {
-            workout: store.getState().workouts.filter(item => item.id == store.getState().screen.id)[0]
+            workout: store.getState().workouts.filter(item => item.id === store.getState().screen.id)[0]
         }
 
     }
@@ -57,7 +56,6 @@ export class ReviewPage extends React.Component {
                     <div className='cfg-name'>
                         <div >
                             {this.state.workout.name}
-
                         </div>
                     </div>
                     <div className='cfg-category'>
@@ -65,7 +63,7 @@ export class ReviewPage extends React.Component {
                             {this.state.workout.category}
                         </div>
                     </div>
-                    <div className='cfg-footer-box review'>
+                    {/* <div className='cfg-footer-box review'>
                         <div>
                             <i className="material-icons">access_time</i>&nbsp;
                                <span>{Math.round(getAllTime(this.state.workout) / 60)} min</span>
@@ -78,7 +76,7 @@ export class ReviewPage extends React.Component {
                             <i className="material-icons">replay</i>&nbsp;
                             <span>{this.state.workout.exs.length * this.state.workout.rounds * this.state.workout.sets} sets</span>
                         </div>
-                    </div>
+                    </div> */}
                     {/* <CfgSetBox workout={this.state.workout} openSettingsCfg={() => { this.setState({ openSettingCfg: true }) }} /> */}
                 </header>
                 <div className="main-feed vh">
@@ -146,7 +144,20 @@ export class ReviewPage extends React.Component {
                     }}>START</button>
                 </div> */}
                 <div className='btn-footer'>
-
+                    <div className='cfg-footer-box'>
+                        <div>
+                            <i className="material-icons">access_time</i>&nbsp;
+                               <span>{Math.round(getAllTime(this.state.workout) / 60)} min</span>
+                        </div>
+                        <div>
+                            <i className="material-icons">fitness_center</i>&nbsp;
+                            <span>{this.state.workout.exs.length} ex</span>
+                        </div>
+                        <div>
+                            <i className="material-icons">replay</i>&nbsp;
+                            <span>{this.state.workout.exs.length * this.state.workout.rounds * this.state.workout.sets} sets</span>
+                        </div>
+                    </div>
                     <div className='btn' onClick={() => {
                         store.dispatch(actions.openTimer(this.state.workout.id))
                     }}>START</div>
@@ -157,42 +168,7 @@ export class ReviewPage extends React.Component {
 }
 
 
-function Feed(props) {
 
-    const exs = props.config.exs;
-
-    return (
-        exs.map((item, id) => {
-            if (id !== exs.length - 1) {
-                return (<div key={id} >
-                    <div className='ex-card'>
-                        {item}
-                        <div className='ex-card-config'>
-                            <div>sets: {props.config.sets}</div>
-                            <div>time on: {props.config.timeOn}</div>
-                            <div>time off: {props.config.timeOff}</div>
-                        </div>
-                    </div>
-                    <div className='resttime-box'>
-                        REST: {props.config.exRestTime}
-                    </div>
-                </div>)
-            } else {
-                return (
-                    <div key={id} >
-                        <div className='ex-card'>
-                            {item}
-                            <div className='ex-card-config'>
-                                <div>sets: {props.config.sets}</div>
-                                <div>work: {props.config.timeOn}</div>
-                                <div>rest: {props.config.timeOff}</div>
-                            </div>
-                        </div>
-                    </div>
-                )
-            }
-        }))
-}
 
 
 

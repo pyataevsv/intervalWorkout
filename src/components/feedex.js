@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './feedex.css'
 import { toMmSs } from '../script/foos'
 
@@ -6,32 +6,31 @@ export class FeedExItem extends React.Component {
 
     constructor(props) {
         super(props);
-        this.removeBtn = React.createRef();
         this.state = {
             editMode: false
         }
+        this.removeBtn = React.createRef();
         this.target = React.createRef();
-
     }
 
     outclickListener = (e) => {
-        if (e.target !== this.target.current) this.setState({ editMode: false })
+        if (e.target !== this.target.current && e.target !== document.querySelector('.feed-items-box')) this.setState({ editMode: false })
     }
 
 
     componentDidUpdate(prevProps, prevState) {
 
-        if (this.state.editMode == true && prevState.editMode == false) {
+        if (this.state.editMode === true && prevState.editMode === false) {
             document.addEventListener('click', this.outclickListener)
         }
-        if (this.state.editMode == false && this.target.current.value == '') {
+        if (this.state.editMode === false && this.target.current.value === '') {
             this.props.changeExName(this.props.id, 'Exercise 1')
         }
     }
 
     shouldComponentUpdate(nextProps, nextState) {
 
-        if (this.state.editMode == true && nextState.editMode == false) {
+        if (this.state.editMode === true && nextState.editMode === false) {
             document.removeEventListener('click', this.outclickListener)
         }
 
@@ -44,7 +43,6 @@ export class FeedExItem extends React.Component {
 
     render() {
         const exs = this.props.config.exs;
-
         const timeOff = (this.props.config.sets === 1) ? null : <div>off: {toMmSs(this.props.config.timeOff)}</div>;
         const repeatIcon = (this.props.config.sets === 1) ? null : <i className="material-icons">repeat</i>;
         const getRandomInt = (max) => {
@@ -56,6 +54,7 @@ export class FeedExItem extends React.Component {
             backgroundImage: 'url(' + require(`../img/png/${i}.png`) + ')',
         }
 
+
         if (this.props.id !== exs.length - 1) {
             return (<div key={this.props.id} >
                 <div className='ex-card'>
@@ -66,6 +65,14 @@ export class FeedExItem extends React.Component {
                                 ref={this.target}
                                 value={this.props.item}
                                 onChange={(e) => { this.props.changeExName(this.props.id, e.target.value); }}
+                                onFocus={() => this.props.hideFooter(true)}
+                                onBlur={() => this.props.hideFooter(false)}
+                                onKeyDown={(e) => {
+                                    if (e.keyCode === 13) {
+                                        this.setState({ editMode: false })
+                                        this.props.hideFooter(false)
+                                    }
+                                }}
                                 disabled={(this.state.editMode) ? '' : '1'}
                             ></input>
                         </div>
@@ -114,6 +121,14 @@ export class FeedExItem extends React.Component {
                                     value={this.props.item}
                                     onChange={(e) => { this.props.changeExName(this.props.id, e.target.value); }}
                                     disabled={(this.state.editMode) ? '' : '1'}
+                                    onFocus={() => this.props.hideFooter(true)}
+                                    onBlur={() => this.props.hideFooter(false)}
+                                    onKeyDown={(e) => {
+                                        if (e.keyCode === 13) {
+                                            this.setState({ editMode: false })
+                                            this.props.hideFooter(false)
+                                        }
+                                    }}
                                 ></input>
                             </div>
                             <div className='ex-card-cfg'>

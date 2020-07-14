@@ -1,5 +1,5 @@
 import React from 'react';
-import { toMmSs, makeExFrame } from '../script/foos'
+import { toMmSs } from '../script/foos'
 import '../components/curnextex.css'
 
 export class CurrentNextEx extends React.Component {

@@ -12,14 +12,16 @@
     font-family: digital;
 }
 .nextex-item > div {
-    padding: 5px 5px 0px 5px;
+    padding: 2px 0px 2px 0px;
 }
 .nextex-current{
     border-radius: 10px;
     border: 1px solid whitesmoke;
     font-size: 40px;
     color: whitesmoke;
+    padding-bottom: 7px;
 }
+
 
 @media screen and (min-width: 620px) {
     
