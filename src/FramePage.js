@@ -5,7 +5,7 @@ import { Context } from './index'
 import { CfgSetBox } from './components/cfgsetbox'
 import { SettingsCfg } from './components/settingscfg'
 import { FeedExItem } from './components/feedex'
-import { getAllTime, toMmSs } from './script/foos'
+import { getAllTime, toMmSs, mobileCheck } from './script/foos'
 
 export class FramePage extends React.Component {
 
@@ -45,7 +45,6 @@ export class FramePage extends React.Component {
         const footer = document.querySelector('.btn-footer');
         root.style.paddingTop = (Number(window.getComputedStyle(header).height.replace('px', '')) + 10) + 'px';
         root.style.paddingBottom = window.getComputedStyle(footer).height;
-        console.log('set')
     }
 
     componentDidUpdate(props, prevState) {
@@ -121,8 +120,8 @@ export class FramePage extends React.Component {
             null;
 
 
-        const btnFooterStyle = (this.state.hideFooter === true) ? { bottom: '-200px', paddingBottom: '0px' } : null;
-        const mainFeedStyle = (this.state.hideFooter === true) ? { paddingBottom: '10px' } : { paddingBottom: window.getComputedStyle(document.querySelector('.btn-footer')).height };
+        const btnFooterStyle = (this.state.hideFooter === true && mobileCheck()) ? { bottom: '-200px', paddingBottom: '0px' } : null;
+        const mainFeedStyle = (this.state.hideFooter === true && mobileCheck()) ? { paddingBottom: '10px' } : { paddingBottom: window.getComputedStyle(document.querySelector('.btn-footer')).height };
 
         return (
             <div>
